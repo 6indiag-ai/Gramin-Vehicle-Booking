@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bookings - Gramin</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <header class="site-header">
@@ -33,11 +33,64 @@
   </table>
 
   <div style="text-align:center;margin-top:12px">
-    <button id="clearStorage" class="btn ghost">Clear All Bookings</button>
+    <button id="clearStorage" class="btn ghost">Clear Local Bookings</button>
   </div>
-
 </main>
 
-<script src="script.js"></script>
+<script>
+// YOUR BACKEND URL
+const API_URL = "https://gramin-backend-fixed.onrender.com/api/bookings";
+
+async function loadFromBackend() {
+  try {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+
+    const tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
+
+    data.forEach(b => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${b.name}</td>
+        <td>${b.mobile}</td>
+        <td>${b.pickup}</td>
+        <td>${b.drop}</td>
+        <td>${b.vehicle}</td>
+        <td>${b.date}</td>
+        <td>${b.time}</td>
+      `;
+      tableBody.appendChild(tr);
+    });
+  } catch (err) {
+    console.log("Backend error, loading from localStorage...", err);
+    loadLocal();
+  }
+}
+
+// Load from localStorage if backend fails
+function loadLocal() {
+  const list = JSON.parse(localStorage.getItem("gv_bookings") || "[]");
+  const tableBody = document.getElementById("tableBody");
+  tableBody.innerHTML = "";
+  list.forEach(b => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${b.name}</td>
+      <td>${b.mobile}</td>
+      <td>${b.pickup}</td>
+      <td>${b.drop}</td>
+      <td>${b.vehicle}</td>
+      <td>${b.date}</td>
+      <td>${b.time}</td>
+    `;
+    tableBody.appendChild(tr);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", loadFromBackend);
+</script>
+
+<script src="./script.js"></script>
 </body>
 </html>

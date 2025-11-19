@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bookings - Gramin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <h1 class="brand">Gramin Vehicle Booking</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="booking.html">Book Now</a>
+      <a href="booking-table.html">Bookings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2 style="text-align:center;margin:18px 0">Booking Records</h2>
+
+  <table id="bookingTable" class="data-table">
+    <thead>
+      <tr>
+        <th>Name</th><th>Mobile</th><th>Pickup</th><th>Drop</th><th>Vehicle</th><th>Date</th><th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+  </table>
+
+  <div style="text-align:center;margin-top:12px">
+    <button id="clearStorage" class="btn ghost">Clear All Bookings</button>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

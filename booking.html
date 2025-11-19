@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book Vehicle - Gramin</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <h1 class="brand">Gramin Vehicle Booking</h1>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="vehicles.html">Vehicles</a>
+      <a href="booking.html">Book Now</a>
+      <a href="booking-table.html">Bookings</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h2 style="text-align:center;margin:18px 0">Vehicle Booking Form</h2>
+
+  <form id="bookingForm" class="form-card">
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter full name" required>
+
+    <label>Mobile Number</label>
+    <input type="tel" id="mobile" placeholder="Enter mobile number" required>
+
+    <label>Pickup Location</label>
+    <input type="text" id="pickup" placeholder="Pickup location" required>
+
+    <label>Drop Location</label>
+    <input type="text" id="drop" placeholder="Drop location" required>
+
+    <label>Vehicle Type</label>
+    <select id="vehicle">
+      <option value="">Select Vehicle</option>
+      <option>Auto</option>
+      <option>Bolero</option>
+      <option>Scorpio</option>
+      <option>Pickup Van</option>
+      <option>Bus</option>
+    </select>
+
+    <label>Journey Type</label>
+    <div class="inline">
+      <label><input type="radio" name="trip" value="One-way" checked> One-way</label>
+      <label><input type="radio" name="trip" value="Round Trip"> Round Trip</label>
+    </div>
+
+    <label>Date of Journey</label>
+    <input type="date" id="date" required>
+
+    <label>Time of Journey</label>
+    <input type="time" id="time" required>
+
+    <label>Passengers</label>
+    <input type="number" id="passengers" min="1" value="1">
+
+    <label>Luggage (KG)</label>
+    <input type="number" id="luggage" min="0" value="0">
+
+    <div class="form-actions">
+      <button type="button" id="saveLocal" class="btn">Save Booking</button>
+      <button type="button" id="sendWhatsApp" class="btn outline">Send to WhatsApp</button>
+      <button type="reset" class="btn ghost">Clear</button>
+    </div>
+  </form>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
